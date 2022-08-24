@@ -1,5 +1,5 @@
 header {
-    background-color: white;
+    background-color: transparent;
     margin-top: 15px;
 }
 
@@ -17,12 +17,18 @@ header {
 .header-nav {
     align-items: center;
     justify-content: space-around;
-    display: flex
+    display: flex;
+    background-image: url(../img/white-wooden.png);
+    background-size: 15%;
+
 }
 
 .header-nav-lista {
     padding-top: 50%;
     box-shadow: 0 0 6px black;
+    background-color: white;
+    text-decoration: none;
+
 }
 
 .header-menu {
@@ -33,17 +39,20 @@ header {
 
 .header-menu-logo {
     width: 50px;
+    background-color: transparent;
 }
 
 .header-nav-link {
     display: flex;
     justify-content: center;
-    background-color: transparent;
+    background-color: white;
     margin-top: 20px;
+
 }
 
 .header-nav-link a {
     color: black;
+    text-decoration: none;
 }
 
 #menu {
@@ -76,6 +85,7 @@ header {
     #menu {
         position: unset;
         display: flex;
+        background-color: transparent;
     }
 
     .header-nav-lista {
@@ -88,14 +98,16 @@ header {
         justify-content: center;
         /* Alineo los vinculos en el centro*/
         margin-left: 0px;
+        background-color: transparent;
     }
 
     .header-nav {
         display: flex;
+        justify-content: space-evenly;
     }
 
     .header-nav-link {
-        background-color: white;
+        background-color: transparent;
         margin: 0px 2px;
         padding: 5px 10px;
     }
