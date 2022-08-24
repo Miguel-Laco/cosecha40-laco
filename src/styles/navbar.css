@@ -1,0 +1,123 @@
+header {
+    background-color: white;
+    margin-top: 15px;
+}
+
+.header-logo {
+    cursor: pointer;
+    /*cambia el puntero por una mano*/
+    height: 80px;
+}
+
+.header-carrito {
+    cursor: pointer;
+    height: 50px;
+}
+
+.header-nav {
+    align-items: center;
+    justify-content: space-around;
+    display: flex
+}
+
+.header-nav-lista {
+    padding-top: 50%;
+    box-shadow: 0 0 6px black;
+}
+
+.header-menu {
+    text-decoration: none;
+    color: red;
+    font-size: 35px;
+}
+
+.header-menu-logo {
+    width: 50px;
+}
+
+.header-nav-link {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    margin-top: 20px;
+}
+
+.header-nav-link a {
+    color: black;
+}
+
+#menu {
+    display: block;
+    background-color: white;
+    width: 80%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 100;
+    transition: right 2s;
+}
+
+#menu:target {
+    right: 0%;
+}
+
+.header-img-close {
+    width: 30px;
+}
+
+@media screen and (min-width: 576px) {
+    .header-menu-logo {
+        user-select: none;
+        /*escondo mi item*/
+        display: none;
+    }
+
+    #menu {
+        position: unset;
+        display: flex;
+    }
+
+    .header-nav-lista {
+        box-shadow: none;
+        padding-top: 0%;
+        display: flex;
+        list-style: none;
+        /*borro las viñetas*/
+        flex-direction: row;
+        justify-content: center;
+        /* Alineo los vinculos en el centro*/
+        margin-left: 0px;
+    }
+
+    .header-nav {
+        display: flex;
+    }
+
+    .header-nav-link {
+        background-color: white;
+        margin: 0px 2px;
+        padding: 5px 10px;
+    }
+
+    .header-nav-link a {
+        padding: 0px 6px;
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        color: black;
+        text-decoration: none;
+        transition: all 0.3s ease 0s;
+        /*elimino el guion del vinculo*/
+        /* Cambio el color de la letra y el fondo de la caja */
+    }
+
+    .header-nav-link a:hover {
+        transition-duration: 0.5s;
+        color: white;
+        background-color: black;
+    }
+
+    .header-nav-link-close {
+        display: none;
+    }
+}
