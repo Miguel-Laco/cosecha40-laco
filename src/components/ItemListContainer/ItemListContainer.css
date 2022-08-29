@@ -1,0 +1,11 @@
+.tittle {
+    font-family: "Courier New", Courier, monospace ;
+    font-size: calc(26px + 2vmin);
+    color: #FFF9F3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    background-color: #7c4008;
+}
