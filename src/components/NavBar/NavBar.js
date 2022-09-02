@@ -1,6 +1,6 @@
 import  CartWidget  from "../CartWidget/CartWidget.js";
 
-const NavBar = () => {
+const NavBar = (props) => {
     return (
         <div className="header-nav">
                     <div>
