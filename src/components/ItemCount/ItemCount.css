@@ -4,7 +4,7 @@
     flex-direction: column;
     text-align: center;
     row-gap: 20px;
-    width: 400px;
+    height: 400px;
     background-color: antiquewhite;
     margin-bottom: 2rem;
 }
@@ -25,7 +25,7 @@
     justify-content: center;
     flex-direction: row;
     column-gap: 40px;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
  
 .boton {

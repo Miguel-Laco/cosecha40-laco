@@ -7,6 +7,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 function App() {
   return (
     <div className="App">
+      <video className="Video" src="img/barricahd.mp4" autoPlay muted/> 
     <NavBar/>
     <ItemListContainer greeting="Bienvenido"/>
     </div>
