@@ -20,7 +20,6 @@ const ItemListContainer = ({greeting}) => {
         resolve(data);}, 2000)
     });
 
-
   return (
     <div className="body">
       {greeting}

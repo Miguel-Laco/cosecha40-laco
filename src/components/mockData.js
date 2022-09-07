@@ -1,18 +1,18 @@
 const data = [
     {
-        id: "1", title: "Altura Máxima", description: "Malbec",precio: "100", img:`img/colome/1.png`, bodega: "Colome"
+        id: "1", title: "Altura Máxima", description: "Malbec",precio: "100", img:`img/colome/1.png`, bodega: "Colome", estrellas: "4"
     },
     {
-        id: "1", title: "Amalaya", description: "Rosado",precio: "100", img:`img/colome/2.png`, bodega: "Colome"
+        id: "1", title: "Amalaya", description: "Rosado",precio: "100", img:`img/colome/2.png`, bodega: "Colome", estrellas: "4"
     },
     {
-        id: "2", title: "Amalaya", description: "Malbec Blend",precio: "100", img:`img/colome/3.png`, bodega: "Colome"
+        id: "2", title: "Amalaya", description: "Malbec Blend",precio: "100", img:`img/colome/3.png`, bodega: "Colome", estrellas: "4"
     },
     {
-        id: "3", title: "Colomé", description: "Malbec",precio: "100", img:`img/colome/4.png`, bodega: "Colome"
+        id: "3", title: "Colomé", description: "Malbec",precio: "100", img:`img/colome/4.png`, bodega: "Colome", estrellas: "4"
     },
     {
-        id: "4", title: "Colomé", description: "Estate Malbec",precio: "100", img:`img/colome/5.png`, bodega: "Colome"
+        id: "4", title: "Colomé", description: "Estate Malbec",precio: "100", img:`img/colome/5.png`, bodega: "Colome", estrellas: "4"
     },
     {
         id: "5", title: "Los Intocables", description: "Black Malbec", precio: "100", img:`img/lasMoras/1.png`, bodega: "Finca las Moras"
