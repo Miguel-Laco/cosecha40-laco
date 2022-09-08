@@ -9,19 +9,20 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     getItem
-    .then((response)=> {setPoducto(response)})
+    .then((response)=> {setPoducto(response.find(prod => prod.id === "3"))
+  })
     .catch((error)=>console.log(error))
   }, [])
+
 const getItem = new Promise((resolve, reject) => {
   setTimeout(()=> {
-    resolve(...data);
-  }, 2000)
+    resolve(data);}, 2000)
   });
 
   return (
-    <div className="nuevoProducto">
+    <>
       <ItemDetail item={producto}/>
-    </div>
+    </>
   )
 }
 

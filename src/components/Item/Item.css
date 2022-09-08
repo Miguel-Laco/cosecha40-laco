@@ -1,8 +1,8 @@
 .producto-Tarjeta {
-    width: 300px;
+    width: 250px;
     background: black;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
-    border-radius: 25px;
+    border-radius: 20px;
     padding: 20px;
     text-align: center;
     justify-content: space-between;
@@ -14,7 +14,7 @@
 .producto-Titulo {
     font-weight: 900;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 25px;
     color: white;
     margin-bottom: 5px;
 }
@@ -68,7 +68,6 @@
 }
 
 .producto-Bodega{
-    font-size: 17px;
-    margin-top: 2rem;
-    
+    font-size: 12px;
 }
+
