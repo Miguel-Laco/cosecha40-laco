@@ -7,25 +7,20 @@ const ItemDetailContainer = () => {
     
   const [producto, setPoducto] = useState([]);
 
-
-
+  useEffect(() => {
+    getItem
+    .then((response)=> {setPoducto(response)})
+    .catch((error)=>console.log(error))
+  }, [])
 const getItem = new Promise((resolve, reject) => {
   setTimeout(()=> {
-    resolve(data);
+    resolve(...data);
   }, 2000)
   });
 
   return (
     <div className="nuevoProducto">
-        {
-            useEffect(() => {
-              getItem
-              .then((response)=> {setPoducto(response)})
-              .then(<ItemDetail item={producto}/>)
-              .catch((error)=>console.log(error))
-            }, [])
-          
-        }
+      <ItemDetail item={producto}/>
     </div>
   )
 }
