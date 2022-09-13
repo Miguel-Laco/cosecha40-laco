@@ -44,4 +44,5 @@ Video{
   width: 100%;
   height: 260vh;
   object-fit: cover;
+  z-index: -1;
 }

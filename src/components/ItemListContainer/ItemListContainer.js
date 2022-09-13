@@ -3,21 +3,34 @@ import { ItemCount } from "../ItemCount/ItemCount.js"
 import { data } from "../mockData"
 import { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
+import { useParams } from "react-router-dom"
+
 
 
 const ItemListContainer = ({greeting}) => {
 
   const [productList, setProductList] = useState([]);
+  const {categoryName} = useParams();
+  console.log(categoryName);
+
 
   useEffect(() => {
     getProducts
-    .then((response)=> {setProductList(response)})
-    .catch((error)=>console.log(error))
-  }, [])
+    .then((response)=>{filter(response)})
+  }, [categoryName])
+  
+  const filter = (response) => {
+    if (categoryName) {
+      setProductList(response.filter((item)=>item.category == categoryName))
+      console.log(categoryName);
+    }else {
+      setProductList(data)
+    }
+  }
   
   const getProducts = new Promise((resolve, reject) => {
       setTimeout(()=> {
-        resolve(data);}, 2000)
+        resolve(data)}, 1000)
     });
 
   return (

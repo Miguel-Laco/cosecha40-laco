@@ -1,4 +1,5 @@
 import  CartWidget  from "../CartWidget/CartWidget.js";
+import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
     return (
@@ -6,23 +7,23 @@ const NavBar = (props) => {
                     <div>
                         <nav>
                             <ul className="header-nav-lista" id="menu">
-                                <li className="header-nav-link"><a href="#menu">Menu</a></li>
-                                <li className="header-nav-link"><a href="#contacto">Contacto</a></li>
+                                <Link className="header-nav-link" to={`/category/Malbec`}>Malbec</Link>
+                                <Link className="header-nav-link" to={`/category/Cabernet`}>Cabernet</Link>
                                 <li className="header-nav-link header-nav-link-close">
-                                    <a href="#"> 
-                                        <img className="header-img-close" src={'img/close.png'} alt="icono cierre"></img>
-                                    </a>
+                                    <Link to={`/`}> 
+                                        {<i className="fa-solid fa-xmark carrito"></i>}
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
                         <a href="#menu" className="header-menu">
-                            <img className="header-menu-logo" src={`img/menuMovil.png`} alt="Logo menu mobile"></img>
+                            <img className="header-menu-logo" src={`img/menuMovilB.png`} alt="Logo menu mobile"></img>
                         </a>
                     </div>
                     <div className="header-nav-order">
-                        <a href="./index.html"> 
-                            <img className="header-logo" src={'img/Cosecha401.png'} alt="Logo Cosecha40"></img>
-                        </a>
+                        <Link to={`/`}> 
+                            <img className="header-logo" src={'img/Cosecha402.png'} alt="Logo Cosecha40"></img>
+                        </Link>
                     </div>
                     <div>
                         <a type="button"> 

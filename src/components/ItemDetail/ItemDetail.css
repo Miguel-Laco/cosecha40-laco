@@ -1,73 +1,204 @@
-.producto-Tarjeta-duplicado {
-    width: 250px;
-    background: rgb(187, 178, 162);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    justify-content: space-between;
-    margin-left: 20px;
-    opacity: 0.8;
-    margin-bottom: 2rem;
-}
-
-.producto-Titulo-duplicado {
-    font-weight: 900;
-    text-transform: uppercase;
-    font-size: 25px;
-    color: white;
-    margin-bottom: 5px;
-}
-
-.producto-Descripcion-duplicado {
-    font-size: 17px;
-    opacity: .8;
-    margin-bottom: 3px;
-}
-
-.producto-Imagen-duplicado{
-    margin: -15px 0 -30px;
-    z-index: 2;
-}
-
-.producto-Footer-duplicado {
-    padding: 10px 10px 0px;
-}
-
-.producto-Precio-duplicado {
-    color: grey;
-    font-size: 22px;
-    font-weight: 900;
-    padding-top: 2px;
-    margin-top: 4px;
-}
-
-.producto-Boton-duplicado {
-    position: relative;
-    z-index: 1;
-    float: right;
-    font-size: 13px;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: orange;
-    padding: 12px 18px;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-    line-height: .95;
-    border: none;
-    background: none;
+* {
+    margin: 0;
+    padding: 0;
     outline: none;
-    border: 1px solid orange;
-    border-radius: 20px;
-    overflow: hidden;
 }
 
-.producto-Boton-duplicado:hover {
-    color: white !important;
-    border: 1px solid white !important;
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #353535;
 }
 
-.producto-Bodega-duplicado{
-    font-size: 12px;
+.container {
+    width: 380px;
+    height: 1vh;
+    margin: 30px auto;
+    margin-top: 9rem;
+}
 
+.card {
+    border-radius: 25px;
+    box-shadow: -11px 11px 1px rgba(0, 0, 0, 0.3);
+}
+
+.card-head {
+    position: relative;
+    height: 252px;
+    background: #fa782e;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #47325D 8%, #0A070D 83%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #47325D 8%, #0A070D 83%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #47325D 8%, #0A070D 83%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fa782e', endColorstr='#c82930', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    border-radius: 25px 25px 0 0;
+}
+
+.card-logo {
+    width: 85px;
+    margin: 20px;
+}
+
+.product-img {
+    position: absolute;
+    left: 1;
+    margin-top: -16px;
+    margin-left: 230px;
+    height: 500px;
+}
+
+.product-detail {
+    padding: 20px 20px;
+    font-size: 13px;
+    color: #fff;
+}
+
+.product-detail h2 {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+.product-detail-bodega {
+    height: 30px;
+    text-align: left;
+    width: 200px;
+}
+
+
+.card-body {
+    height: 255px;
+    background: #fff;
+    border-radius: 0 0 25px 25px;
+    
+}
+
+.product-title {
+    padding: 20px 20px 5px 20px;
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+}
+
+.product-title b {
+    font-weight: 900;
+    letter-spacing: 0px;
+}
+
+.badge {
+    position: relative;
+    font-size: 10px;
+    font-weight: 300;
+    color: #fff;
+    background: #11e95b;
+    padding: 2px 5px;
+    border-radius: 4px;
+    top: -2px;
+    margin-left: 5px;
+}
+
+.product-caption {
+    display: block;
+    padding: 0 20px;
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.product-rating {
+    padding: 0 20px;
+    font-size: 11px;
+}
+
+.product-rating i.grey {
+    color: #acacab;
+}
+
+/* .product-size h4 {
+    font-size: 11px;
+    padding: 0 21px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+} */
+
+/* .ul-size {
+    margin-left: 15px;
+}
+
+.ul-size img {
+    height: 80px;
+}
+
+.ul-size li {
+    list-style: none;
+    float: left;
+    margin-right: 20px;
+    height: 20px;
+}
+
+.ul-size li a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 11px;
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 23px;
+    color: #000;
+}
+
+.ul-size li a.active {
+    background: #f35e3d;
+    color: #fff;
+} */
+
+.product-size:before,
+.product-size:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.product-price {
+    position: absolute;
+    background: #FC6471;
+    padding: 7px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 200;
+    color: #fff;
+    border-radius: 7px;
+    margin-top: 3px;
+    margin-left: 300px;
+    box-shadow: -10px 20px 15px -10px rgba(75, 76, 77, 0.141);
+}
+
+.product-price b {
+    margin-left: 5px;
+}
+
+.yt {
+    position: fixed;
+    padding: 7px 10px 3px 10px;
+    top: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.yt:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.splide__slide img {
+    height: 70px;
 }
