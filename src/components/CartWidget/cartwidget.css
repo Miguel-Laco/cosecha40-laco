@@ -1,4 +1,6 @@
 .carrito {
     cursor: pointer;
     font-size: xx-large;
+    text-decoration: none;
+    color: white;
 }

@@ -11,7 +11,7 @@ const ItemListContainer = ({greeting}) => {
 
   const [productList, setProductList] = useState([]);
   const {categoryName} = useParams();
-  console.log(categoryName);
+
 
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const ItemListContainer = ({greeting}) => {
   const filter = (response) => {
     if (categoryName) {
       setProductList(response.filter((item)=>item.category == categoryName))
-      console.log(categoryName);
+
     }else {
       setProductList(data)
     }

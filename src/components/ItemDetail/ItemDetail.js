@@ -1,24 +1,10 @@
-import { useEffect, useState } from "react";
 import "./ItemDetail.css"
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import { logDOM } from "@testing-library/react";
 
-const ItemDetail = ({id, title, precio, img, category, bodega, info, maridaje}) => {
 
-  const [comida, setComida] = useState([]);
-  
-  useEffect(()=> {
- getFood()
- .then((response)=> {setComida(response)})
- .then( console.log(getFood))
-.catch((error)=>console.log(error))
-  },[])
 
-  const getFood = async () => {
-    setComida({maridaje})
-    await console.log(comida);
-  }
+const ItemDetail = ({id, title, precio, img, category, bodega, info, maridaje1, maridaje2}) => {
 
   return(
 
@@ -46,7 +32,8 @@ const ItemDetail = ({id, title, precio, img, category, bodega, info, maridaje}) 
       <div className="product-properties">
       <span className="product-size">
           <Splide  aria-label="My Favorite Images" options={ {
-          rewind: true,
+          rewind: false,
+          type: `loop`,
           width : 250,
           gap   : '1rem',
           autoplay: true,
@@ -55,10 +42,10 @@ const ItemDetail = ({id, title, precio, img, category, bodega, info, maridaje}) 
           interval: 2000,
         } }>
             <SplideSlide>
-              <img src=""alt="Image 1"/>
+              <img src={maridaje1} alt="Ternera"/>
             </SplideSlide>
             <SplideSlide>
-              <img src="" alt="Image 2"/>
+              <img src={maridaje2} alt="Aves"/>
             </SplideSlide>
           </Splide>
               </span>

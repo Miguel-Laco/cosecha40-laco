@@ -9,6 +9,7 @@ const NavBar = (props) => {
                             <ul className="header-nav-lista" id="menu">
                                 <Link className="header-nav-link" to={`/category/Malbec`}>Malbec</Link>
                                 <Link className="header-nav-link" to={`/category/Cabernet`}>Cabernet</Link>
+                                <Link className="header-nav-link" to={`/category/Rosado`}>Rosado</Link>
                                 <li className="header-nav-link header-nav-link-close">
                                     <Link to={`/`}> 
                                         {<i className="fa-solid fa-xmark carrito"></i>}
@@ -16,9 +17,9 @@ const NavBar = (props) => {
                                 </li>
                             </ul>
                         </nav>
-                        <a href="#menu" className="header-menu">
+                        <div className="header-menu">
                             <img className="header-menu-logo" src={`img/menuMovilB.png`} alt="Logo menu mobile"></img>
-                        </a>
+                        </div>
                     </div>
                     <div className="header-nav-order">
                         <Link to={`/`}> 
@@ -26,9 +27,9 @@ const NavBar = (props) => {
                         </Link>
                     </div>
                     <div>
-                        <a type="button"> 
+                        <Link to={`/cart`}> 
                             <CartWidget/>
-                        </a>
+                        </Link>
                     </div>
                     </div>
     )

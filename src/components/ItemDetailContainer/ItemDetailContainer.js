@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
     
   const [producto, setPoducto] = useState([]);
   const {id} = useParams();
-console.log(id);
+
   
   useEffect(() => {
     getItem
@@ -25,7 +25,7 @@ const getItem = new Promise((resolve, reject) => {
 
   return (
     <>
-      {producto && <ItemDetail  id={producto.id} maridaje={producto.maridaje} title={producto.title} category={producto.category} precio={producto.precio} img={producto.img} bodega={producto.bodega} info={producto.info}/>}
+      {producto && <ItemDetail  id={producto.id} maridaje1={producto.maridaje1} maridaje2={producto.maridaje2} title={producto.title} category={producto.category} precio={producto.precio} img={producto.img} bodega={producto.bodega} info={producto.info}/>}
     </>
   )
 }

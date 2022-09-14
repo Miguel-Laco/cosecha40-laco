@@ -11,10 +11,9 @@ function App() {
     <video className="Video" src="img/videohd.mp4" autoPlay muted loop/> 
     <NavBar/>
       <Routes>
-        <Route path='/' element={<ItemListContainer /* greeting="Bienvenido" *//>} />
+        <Route path='/' element={<ItemListContainer />} />
         <Route path='/category/:categoryName' element={<ItemListContainer/>}/>
         <Route path='/item/:id' element={<ItemDetailContainer/>}/>
-        <Route path=''/>
       </Routes>
     </BrowserRouter>
   );
