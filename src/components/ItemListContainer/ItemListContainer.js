@@ -1,5 +1,4 @@
 import "./ItemListContainer.css"
-import { ItemCount } from "../ItemCount/ItemCount.js"
 import { data } from "../mockData"
 import { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
@@ -36,7 +35,6 @@ const ItemListContainer = ({greeting}) => {
   return (
     <div className="body">
       {greeting}
-      <ItemCount stock={5} />
       <ItemList lista={productList}/>
     </div>
   )

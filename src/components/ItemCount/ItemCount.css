@@ -3,20 +3,12 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    row-gap: 20px;
-    height: 400px;
-    background-color: antiquewhite;
-    margin-bottom: 2rem;
-}
- 
-.contador h1 {
-    color: black;
-    font-size: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    background-color: transparent;
+    width: 50%;
 }
  
 .contadorValor {
-    font-size: 30px;
+    font-size: 12px;
     color: black;
 }
  
@@ -24,13 +16,12 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    column-gap: 40px;
-    margin-bottom: 0rem;
+    column-gap: 15px;
 }
  
 .boton {
-    font-size: 20px;
-    padding: 10px 20px;
+    font-size: 12px;
+    padding: 1px 10px;
     background-color: transparent;
     color: black;
     border: 1px solid rgb(235, 38, 12);
@@ -43,16 +34,14 @@
     color: rgb(255, 255, 255);
 }
  
-.reset {
-    width: 100px;
-    font-size: 18px;
-    padding: 10px 20px;
+.irAlCarrito {
+    width: 90px;
+    font-size: 20px;
     background-color: solid rgb(0, 0, 0);
     color: rgb(0, 0, 0);
     border: 1px solid rgb(0, 0, 0);
     cursor: pointer;
     transition: 0.2s ease-in-out;
-    margin-bottom: 2rem;
 }
  
 .reset:hover {

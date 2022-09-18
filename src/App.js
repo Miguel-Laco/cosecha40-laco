@@ -4,9 +4,11 @@ import "./components/NavBar/navbar.css";
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { CartContext } from './context/cartContext';
 
 function App() {
   return (
+    <CartContext.Provider value={[]}>
     <BrowserRouter>
     <video className="Video" src="img/videohd.mp4" autoPlay muted loop/> 
     <NavBar/>
@@ -16,6 +18,7 @@ function App() {
         <Route path='/item/:id' element={<ItemDetailContainer/>}/>
       </Routes>
     </BrowserRouter>
+    </CartContext.Provider>
   );
 }
 

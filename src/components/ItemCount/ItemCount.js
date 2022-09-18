@@ -1,33 +1,28 @@
-import { useState } from 'react'
+import { Link } from "react-router-dom";
 import "./ItemCount.css"
  
-function ItemCount( {stock} ) {
-  const [valor, setValor] = useState(0);
+function ItemCount( {stock, count, setCount} ) {
 
   //Amentar contador
-  const sumar = () => valor < stock ? setValor(valor + 1) : alert (`se alcanzo el maximo`)
+  const sumar = () => count < stock ? setCount(count + 1) : alert (`se alcanzo el maximo`)
 
     
   //Restar contador
-  const restar = () => valor > 0 ? setValor(valor - 1) : alert (`no se puede restar más`);
+  const restar = () => count > 0 ? setCount(count - 1) : alert (`no se puede restar más`);
  
-  //Resetear contador
-  const reset = () =>{
-    setValor(0)
-  }
   return (
     <div className="contador">
-      <h1>Contador con Boton</h1>
-      <span className="contadorValor">En Carrito: {valor}</span>
+      <span className="contadorValor">Enviar a tu carrito: {count}</span>
       <div className="contadorBotones">
         <button className="boton" onClick={sumar}>+</button>
         <button className="boton" onClick={restar}>-</button>        
       </div>
       <div>
-        <span  className="contadorValor">En Stock: {stock - valor} </span>
+        <span  className="contadorValor">En Stock: {stock - count} </span>
       </div>
       <div>
-      <button className="reset" onClick={reset}>Reset</button>
+      <Link to={`/cart`}><button className="irAlCarrito">Carrito</button></Link>
+      
       </div>
     </div>
   );
