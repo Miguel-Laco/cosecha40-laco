@@ -8,7 +8,7 @@
 }
  
 .contadorValor {
-    font-size: 12px;
+    font-size: 15px;
     color: black;
 }
  
@@ -20,7 +20,8 @@
 }
  
 .boton {
-    font-size: 12px;
+    margin-top: 5px;
+    font-size: 15px;
     padding: 1px 10px;
     background-color: transparent;
     color: black;

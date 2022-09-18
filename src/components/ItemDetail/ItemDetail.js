@@ -6,26 +6,22 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
-
 const ItemDetail = ({id, title, stock, precio, img, category, bodega, info, maridaje1, maridaje2}) => {
 
 const [count, setCount] = useState(0);
 const [render, setRender] = useState(false)
 
-useEffect(() => {
 
-  return () => {
-  console.log(count);
-  }
+useEffect(() => {
+  console.log(`se enviaron al carrito ${count} botellas`);
 }, [count])
 
-//Agregar al Carrito
-const agregar = () => {
-  if (count != 0) {
-    setRender(true)
-    //Logica para agregar al CartContext el resultado de "count"
-  }
-  
+
+//Esta función tendrá toda la lógica para enviar al carrito del desafío n°10
+//Por ahora, solo cambio el estado de ItemDetail con lo que recibe de ItemCount
+const agregar = (cantidad) => {
+  setCount(cantidad);
+    setRender(true);
 }
 
   return(
@@ -74,16 +70,11 @@ const agregar = () => {
                 $<b>{precio}</b>
               </span>
       </div>
-      {!render && <div>
-          <ItemCount stock={stock} setCount={setCount} count={count}/>
-          <button className="irAlCarrito" onClick={agregar}>Agregar a carrito</button>
+      {!render && <ItemCount stock={stock} agregar={agregar}/>}
+      {render && <div className="botonesFinales">
+      <Link to={`/cart`}><button className="boton">Terminar Compra</button></Link>
+      <Link to={`/`}><button className="boton">Seguir Comprando</button></Link>
       </div>}
-      
-      {render && <div>
-      <Link to={`/cart`}><button className="irAlCarrito">Terminar Compra</button></Link>
-      <Link to={`/`}><button className="irAlCarrito">Seguir Comprando</button></Link>
-      </div>}
-
     </div>
   </div>
 </div>
