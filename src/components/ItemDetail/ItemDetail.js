@@ -2,14 +2,31 @@ import "./ItemDetail.css"
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { ItemCount } from "../ItemCount/ItemCount";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 
 const ItemDetail = ({id, title, stock, precio, img, category, bodega, info, maridaje1, maridaje2}) => {
 
 const [count, setCount] = useState(0);
+const [render, setRender] = useState(false)
 
+useEffect(() => {
+
+  return () => {
+  console.log(count);
+  }
+}, [count])
+
+//Agregar al Carrito
+const agregar = () => {
+  if (count != 0) {
+    setRender(true)
+    //Logica para agregar al CartContext el resultado de "count"
+  }
+  
+}
 
   return(
   <div className="container">
@@ -57,7 +74,16 @@ const [count, setCount] = useState(0);
                 $<b>{precio}</b>
               </span>
       </div>
-      <ItemCount stock={stock} setCount={setCount} count={count}/>
+      {!render && <div>
+          <ItemCount stock={stock} setCount={setCount} count={count}/>
+          <button className="irAlCarrito" onClick={agregar}>Agregar a carrito</button>
+      </div>}
+      
+      {render && <div>
+      <Link to={`/cart`}><button className="irAlCarrito">Terminar Compra</button></Link>
+      <Link to={`/`}><button className="irAlCarrito">Seguir Comprando</button></Link>
+      </div>}
+
     </div>
   </div>
 </div>

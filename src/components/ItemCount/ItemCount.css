@@ -34,18 +34,3 @@
     color: rgb(255, 255, 255);
 }
  
-.irAlCarrito {
-    width: 90px;
-    font-size: 20px;
-    background-color: solid rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-}
- 
-.reset:hover {
-    background-color: rgb(255, 5, 5);
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(253, 4, 4);
-}

@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
 
   })
     .catch((error)=>console.log(error))
-  }, [])
+  }, [id])
 
 const getItem = new Promise((resolve, reject) => {
   setTimeout(()=> {
