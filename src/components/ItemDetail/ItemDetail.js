@@ -2,19 +2,24 @@ import "./ItemDetail.css"
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { ItemCount } from "../ItemCount/ItemCount";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 
-const ItemDetail = ({id, title, stock, precio, img, category, bodega, info, maridaje1, maridaje2}) => {
+const ItemDetail = ({producto}) => {
 
 const [count, setCount] = useState(0);
 const [render, setRender] = useState(false)
+const {addCarrito, cart} = useContext(CartContext)
+
+useEffect(()=>{
+  setTimeout(()=>{
+    count != 0 && addCarrito(producto, count, (producto.stock - count))
+  }, 100)
+},[render])
 
 
-useEffect(() => {
-  console.log(`se enviaron al carrito ${count} botellas`);
-}, [count])
 
 
 //Esta función tendrá toda la lógica para enviar al carrito del desafío n°10
@@ -28,16 +33,16 @@ const agregar = (cantidad) => {
   <div className="container">
   <div className="card">
     <div className="card-head">
-      <img src={img} alt="Shoe" className="product-img"></img>
+      <img src={producto.img} alt="Shoe" className="product-img"></img>
       <div className="product-detail">
-        <h2>{bodega}</h2>
-        <div className="product-detail-bodega">{info}</div> 
+        <h2>{producto.bodega}</h2>
+        <div className="product-detail-bodega">{producto.info}</div> 
       </div>
     </div>
     <div className="card-body">
       <div className="product-desc">
-        <span className="product-title">{title}</span>
-        <span className="product-caption">{category}</span>
+        <span className="product-title">{producto.title}</span>
+        <span className="product-caption">{producto.category}</span>
         <span className="product-rating">
                 <i className="fa fa-star"></i>
                 <i className="fa fa-star"></i>
@@ -59,18 +64,18 @@ const agregar = (cantidad) => {
           interval: 2000,
         } }>
             <SplideSlide>
-              <img src={maridaje1} alt="Ternera"/>
+              <img src={producto.maridaje1} alt="Ternera"/>
             </SplideSlide>
             <SplideSlide>
-              <img src={maridaje2} alt="Aves"/>
+              <img src={producto.maridaje2} alt="Aves"/>
             </SplideSlide>
           </Splide>
               </span>
         <span className="product-price">
-                $<b>{precio}</b>
+                $<b>{producto.precio}</b>
               </span>
       </div>
-      {!render && <ItemCount stock={stock} agregar={agregar}/>}
+      {!render && <ItemCount stock={producto.stock} agregar={agregar}/>}
       {render && <div className="botonesFinales">
       <Link to={`/cart`}><button className="boton">Terminar Compra</button></Link>
       <Link to={`/`}><button className="boton">Seguir Comprando</button></Link>

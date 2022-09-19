@@ -4,21 +4,22 @@ import "./components/NavBar/navbar.css";
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import { CartContext } from './context/cartContext';
+import CartProvider from './context/CartProvider';
+
 
 function App() {
   return (
-    <CartContext.Provider value={[]}>
-    <BrowserRouter>
-    <video className="Video" src="img/videohd.mp4" autoPlay muted loop/> 
-    <NavBar/>
-      <Routes>
-        <Route path='/' element={<ItemListContainer />} />
-        <Route path='/category/:categoryName' element={<ItemListContainer/>}/>
-        <Route path='/item/:id' element={<ItemDetailContainer/>}/>
-      </Routes>
-    </BrowserRouter>
-    </CartContext.Provider>
+    <CartProvider>
+      <BrowserRouter>
+      <video className="Video" src="img/videohd.mp4" autoPlay muted loop/> 
+      <NavBar/>
+        <Routes>
+          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/category/:categoryName' element={<ItemListContainer/>}/>
+          <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
