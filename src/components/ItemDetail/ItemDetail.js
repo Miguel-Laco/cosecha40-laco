@@ -9,24 +9,25 @@ import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = ({producto}) => {
 
-const [count, setCount] = useState(0);
-const [render, setRender] = useState(false)
+const [count, setCount] = useState(0); 
+const [cargar, setCargar] = useState(false)
+const [mostrar, setMostrar] = useState(false)
 const {addCarrito, cart} = useContext(CartContext)
 
+
+//Genero este useEffect, para enviar el producto, la cantidad y el stock restante
 useEffect(()=>{
   setTimeout(()=>{
     count != 0 && addCarrito(producto, count, (producto.stock - count))
   }, 100)
-},[render])
+},[cargar])
 
 
-
-
-//Esta función tendrá toda la lógica para enviar al carrito del desafío n°10
-//Por ahora, solo cambio el estado de ItemDetail con lo que recibe de ItemCount
 const agregar = (cantidad) => {
-  setCount(cantidad);
-    setRender(true);
+  setCount(cantidad); //Almaceno la cantidad seleccionada por el usuario
+  setMostrar(true); //Renderizo condicionalmente los botones para seguir comprando, más o terminar
+  cargar ? setCargar(false) : setCargar(true) //Cambio el estado, para ejecutar el useEffect
+
 }
 
   return(
@@ -75,10 +76,11 @@ const agregar = (cantidad) => {
                 $<b>{producto.precio}</b>
               </span>
       </div>
-      {!render && <ItemCount stock={producto.stock} agregar={agregar}/>}
-      {render && <div className="botonesFinales">
+      {!mostrar && <ItemCount stock={producto.stock} agregar={agregar}/>}
+      {mostrar && <div className="botonesFinales">
       <Link to={`/cart`}><button className="boton">Terminar Compra</button></Link>
       <Link to={`/`}><button className="boton">Seguir Comprando</button></Link>
+      <button onClick={()=>{setMostrar(false)}} className="boton">Agregar más</button>
       </div>}
     </div>
   </div>

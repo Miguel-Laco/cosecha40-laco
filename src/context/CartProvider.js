@@ -10,31 +10,29 @@ useEffect(()=>{
     console.log(cart);
 },[cart])
 
-
+//Creo una función que agrega al carrito el producto, actualizando el stock y agregando cantidad
 const addCarrito = (item, cantidad, stock) => {
-    const existe = cart.find ((elemento) => elemento.item.id === item.id);
+    const existe = cart.find ((elemento) => elemento.id === item.id);
     if (existe) {
-        existe.cantidad = existe.cantidad + cantidad;
-        existe.stock = existe.stock - cantidad;
-        setCart([...cart]);
+        if (existe.stock < cantidad){
+            alert (`Solo nos quedan en stock ${existe.stock}`)
+        }else {
+            existe.cantidad = existe.cantidad + cantidad;
+            existe.stock = existe.stock - cantidad;
+            setCart([...cart]);}
     }else{
-        setCart([...cart, {item, cantidad, stock}]);
+        setCart([...cart, {...item, cantidad, stock}]);
     }
 }
 
-const removeCarrito = (item) => {
-    const nuevoArreglo = cart.filter((elemento)=>elemento.item !== item);
-    setCart(nuevoArreglo);
-}
-
+//Creo la función para vaciar el carrito completo
 const clearCarrito = () => {
     setCart([]);
 }
 
 
-
   return (
-    <CartContext.Provider value={{cart, addCarrito, removeCarrito, clearCarrito}}>
+    <CartContext.Provider value={{cart, addCarrito}}>
         {children}
     </CartContext.Provider>
   )
