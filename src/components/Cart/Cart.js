@@ -2,7 +2,7 @@ import "./Cart.css"
 import {useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
-
+import Badge from 'react-bootstrap/Badge';
 
 const Cart = () => {
 
@@ -35,25 +35,25 @@ const eliminarTodo = () => {
                 <img className="carrito-Imagen" width={`70px`} height={`265px`} src={item.img} alt={item.title}/>
                 <div className="carrito-Info">
               <div className="carrito-Divisor">
-                  <img className="carrito-Icono" src={`img/datos/botella.png`}/>
+                  <img className="carrito-Icono" src={`img/datos/botella_b.png`}/>
                 <h2 className="carrito-Titulo">{item.title}</h2>
               </div>
               <div className="carrito-Divisor">
-                  <img className="carrito-Icono" src={`img/datos/uva.png`}/>
+                  <img className="carrito-Icono" src={`img/datos/uvas_b.png`}/>
                 <h3 className="carrito-Descripcion">{item.category}</h3>
               </div>
               <div className="carrito-Divisor">
-                  <img className="carrito-Icono" src={`img/datos/vino.png`}/>
+                  <img className="carrito-Icono" src={`img/datos/vino_b.png`}/>
                 <span className="carrito-Bodega">{item.bodega}</span>
               </div>
             </div>
                 <div className="carrito-Footer">
                     <div className="carrito-Cantidad">{item.cantidad}</div>
-                    <h3 className="carrito-Precio">${item.precio}</h3>
+                    <h3 className="carrito-Precio">${item.precio}<span class="badge-2">/ unidad</span></h3>
                     <button className="carrito-Boton" onClick={() => (eliminarUno(item.id))}>quitar</button>
                 </div>
             </div>
-        ))}
+        ))} 
         {/* <div className="carrito-Total">TOTAL</div> */}
         {cart.length === 0 ? (
         <>
