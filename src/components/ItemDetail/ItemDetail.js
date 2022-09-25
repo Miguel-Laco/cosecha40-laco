@@ -9,10 +9,10 @@ import { CartContext } from "../../context/CartContext";
 
 const ItemDetail = ({producto}) => {
 
-const [count, setCount] = useState(0); 
-const [cargar, setCargar] = useState(false)
-const [mostrar, setMostrar] = useState(false)
-const {addCarrito, cart} = useContext(CartContext)
+const [count, setCount] = useState(0); //Genero un estado para almacenar la cantidad seleccionada en ItemCount
+const [cargar, setCargar] = useState(false) //Genero un estado para condicionar la carga de mi carrito.
+const [mostrar, setMostrar] = useState(false) //Genero un estado para renderizar condicionalmente
+const {addCarrito} = useContext(CartContext) //Importo mi función global para agregar al carrito
 
 
 //Genero este useEffect, para enviar el producto, la cantidad y el stock restante
@@ -21,6 +21,8 @@ useEffect(()=>{
     count != 0 && addCarrito(producto, count, (producto.stock - count))
   }, 100)
 },[cargar])
+
+
 
 
 const agregar = (cantidad) => {
@@ -76,18 +78,18 @@ const agregar = (cantidad) => {
                 $<b>{producto.precio}</b>
               </span>
       </div>
-      {!mostrar && <ItemCount stock={producto.stock} agregar={agregar}/>}
+      {/* Muestro u Oculto condicionalmente el ItemCount */}
+      {!mostrar && <ItemCount stock={producto.stock - count} agregar={agregar}/>}
+      {/* Muestro u Oculto condicionalmente botones adicionales */}
       {mostrar && <div className="botonesFinales">
-      <Link to={`/cart`}><button className="boton">Terminar Compra</button></Link>
+      <Link to={`/cart`}><button className="boton">Terminar mi Compra</button></Link>
       <Link to={`/`}><button className="boton">Seguir Comprando</button></Link>
       <button onClick={()=>{setMostrar(false)}} className="boton">Agregar más</button>
       </div>}
     </div>
   </div>
 </div>
-
-
-  )
+)
 }
 
 export default ItemDetail

@@ -4,3 +4,13 @@
     text-decoration: none;
     color: white;
 }
+.badge {
+    position: relative;
+    font-weight: 300;
+    color: #fff;
+
+    padding: 2px 5px;
+    border-radius: 4px;
+    top: -21px;
+    margin-left: 5px;
+}

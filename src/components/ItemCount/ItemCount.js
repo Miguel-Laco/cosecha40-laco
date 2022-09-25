@@ -6,8 +6,9 @@ function ItemCount( {stock, agregar} ) {
 
   const [cantidad, setCantidad] = useState(0)
 
+
   //Amentar contador
-  const sumar = () => cantidad < stock ? setCantidad(cantidad + 1) : alert (`se alcanzo el maximo`)
+  const sumar = () =>stock ? setCantidad(cantidad + 1) : alert (`se alcanzo el maximo`)
 
   //Restar contador
   const restar = () => cantidad > 0 ? setCantidad(cantidad - 1) : alert (`no se puede restar más`);

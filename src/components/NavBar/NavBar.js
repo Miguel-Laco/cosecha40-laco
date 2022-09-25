@@ -1,7 +1,14 @@
 import  CartWidget  from "../CartWidget/CartWidget.js";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+import {useContext } from "react";
+
+
 
 const NavBar = (props) => {
+    //traigo el cart, para mostrar condicionalmente el CartWidget
+    const {cart} = useContext(CartContext) 
+
     return (
         <div className="header-nav">
                     <div>
@@ -27,9 +34,11 @@ const NavBar = (props) => {
                         </Link>
                     </div>
                     <div>
+                        {cart.length !== 0 ? 
                         <Link to={`/cart`}> 
                             <CartWidget/>
                         </Link>
+                        : null }
                     </div>
                     </div>
     )

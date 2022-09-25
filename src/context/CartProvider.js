@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { CartContext } from "./CartContext"
 
 
@@ -6,9 +6,7 @@ import { CartContext } from "./CartContext"
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
 
-useEffect(()=>{
-    console.log(cart);
-},[cart])
+
 
 //Creo una función que agrega al carrito el producto, actualizando el stock y agregando cantidad
 const addCarrito = (item, cantidad, stock) => {
@@ -25,6 +23,17 @@ const addCarrito = (item, cantidad, stock) => {
     }
 }
 
+const deleteCarrito = (prodId) =>{
+    const item = cart.findIndex((prod) => prod.id === prodId) 
+    let nuevoArreglo = [];
+    cart.forEach(prod=> {
+        if (prod.id !== prodId){
+            nuevoArreglo.push(prod)
+        }
+    })
+    setCart(nuevoArreglo);
+}
+
 //Creo la función para vaciar el carrito completo
 const clearCarrito = () => {
     setCart([]);
@@ -32,7 +41,7 @@ const clearCarrito = () => {
 
 
   return (
-    <CartContext.Provider value={{cart, addCarrito}}>
+    <CartContext.Provider value={{cart, addCarrito, clearCarrito, deleteCarrito}}>
         {children}
     </CartContext.Provider>
   )

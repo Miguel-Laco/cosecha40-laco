@@ -1,6 +1,7 @@
 import Item from "../Item/Item"
 import "./ItemList.css"
 
+
 const ItemList = ({lista}) => {
     return (
     <div className="productos">
