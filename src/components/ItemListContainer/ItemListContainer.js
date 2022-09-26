@@ -11,7 +11,8 @@ const ItemListContainer = ({greeting}) => {
   const [productList, setProductList] = useState([]);
   const {categoryName} = useParams();
 
-
+/* const db = getFirestore();
+const itemsCollections = db.collection(`items`) */
 
   useEffect(() => {
     getProducts
