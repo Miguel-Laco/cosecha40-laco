@@ -13,7 +13,7 @@ const addCarrito = (item, cantidad, stock) => {
     const existe = cart.find ((elemento) => elemento.id === item.id);
     if (existe) {
         if (existe.stock < cantidad){
-            alert (`Solo nos quedan en stock ${existe.stock}`)
+            alert (`Actualmente nos quedan ${existe.stock} botellas de nuestro stock, porque ${existe.cantidad}, estan en tu carrito`)
         }else {
             existe.cantidad = existe.cantidad + cantidad;
             existe.stock = existe.stock - cantidad;
