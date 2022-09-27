@@ -23,8 +23,6 @@ useEffect(()=>{
 },[cargar])
 
 
-
-
 const agregar = (cantidad) => {
   setCount(cantidad); //Almaceno la cantidad seleccionada por el usuario
   setMostrar(true); //Renderizo condicionalmente los botones para seguir comprando, más o terminar
@@ -47,12 +45,13 @@ const agregar = (cantidad) => {
         <span className="product-title">{producto.title}</span>
         <span className="product-caption">{producto.category}</span>
         <span className="product-rating">
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star "></i>
-                <i className="fa fa-star grey"></i>
-              </span>
+          {Array.from(
+              { length: producto.estrellas },
+              (_, i) => (
+                <i className="fa fa-star" key={i}></i>
+              )
+          )}
+        </span>
       </div>
       <div className="product-properties">
       <span className="product-size">

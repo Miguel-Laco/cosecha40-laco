@@ -1,9 +1,8 @@
 import "./ItemListContainer.css"
-import { data } from "../mockData"
 import { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
-import { getFirestore, getDocs, collection } from "firebase/firestore"
+import { getFirestore, getDocs, collection, query, where } from "firebase/firestore"
 
 
 const ItemListContainer = ({greeting}) => {
@@ -11,42 +10,38 @@ const ItemListContainer = ({greeting}) => {
   const [productList, setProductList] = useState([]);
   const {categoryName} = useParams();
 
-/* const db = getFirestore();
-const itemsCollections = db.collection(`items`) */
-
-  useEffect(() => {
-    getProducts
-    .then((response)=>{filter(response)})
+    useEffect(() => {
+    getProducts()
   }, [categoryName])
-  
-  const filter = (response) => {
-    if (categoryName) {
-      setProductList(response.filter((item)=>item.category == categoryName))
 
-    }else {
-      setProductList(data)
-    }
-  }
-  
-  const getProducts = new Promise((resolve, reject) => {
-      setTimeout(()=> {
-        resolve(data)}, 1000)
-    });
 
     //Traigo la info de Firestore
-    /* const getProducts = () =>{
+    const getProducts = () =>{
       const db = getFirestore();
       const querySnapshot = collection(db, `items`);
-      getDocs(querySnapshot)
-      .then((response)=> {
-        const data = response.docs.map((doc) => {
+      if (categoryName) {
+        const queryFilter = query(querySnapshot, where("category", "==", categoryName))
+        getDocs(queryFilter)
+          .then((response)=> {
+          const data = response.docs.map((doc) => {
           return { id: doc.id, ...doc.data() };
         })
         setProductList(data)
-      })
-      .catch((err)=> console.log(err))
+      }).catch((err)=> console.log(err))
+      }else {
+        getDocs(querySnapshot)
+          .then((response)=> {
+          const data = response.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        })
+        setProductList(data)
+      }).catch((err)=> console.log(err))
+      }
+
+
+      
     }
- */
+
   return (
     <div className="body">
       {greeting}

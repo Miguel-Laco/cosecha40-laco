@@ -1,32 +1,25 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { data } from "../mockData";
-/* import {getFirestore, doc, getDoc} from "firebase/firestore"; */
+import {getFirestore, doc, getDoc} from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     
   const [producto, setPoducto] = useState({});
   const {id} = useParams();
-  /* const db = getFirestore();
-
-  const queryDoc = doc(db, `items`, `nFdVsbjaITnM9V8i2lWT`);
-  getDoc(queryDoc).then(res => {console.log(res.data)}) */
-  
-
+  const db = getFirestore();
 
   useEffect(() => {
-    getItem
-    .then((response)=> {setPoducto(response.find(prod => prod.id === id))
-
-  })
-    .catch((error)=>console.log(error))
+    getItem()
   }, [id])
 
-const getItem = new Promise((resolve, reject) => {
-  setTimeout(()=> {
-    resolve(data);}, 1000)
-  });
+  const getItem = () => {
+    const queryDoc = doc(db, `items`,id);
+      getDoc(queryDoc)
+        .then((res) => {
+        setPoducto({id: res.id, ...res.data()})
+        })
+    };
 
   return (
     <>

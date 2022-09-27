@@ -2,7 +2,6 @@ import "./Cart.css"
 import {useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
-import Badge from 'react-bootstrap/Badge';
 
 const Cart = () => {
 
@@ -49,7 +48,7 @@ const eliminarTodo = () => {
             </div>
                 <div className="carrito-Footer">
                     <div className="carrito-Cantidad">{item.cantidad}</div>
-                    <h3 className="carrito-Precio">${item.precio}<span class="badge-2">/ unidad</span></h3>
+                    <h3 className="carrito-Precio">${item.precio}<span className="badge-2">/ unidad</span></h3>
                     <button className="carrito-Boton" onClick={() => (eliminarUno(item.id))}>quitar</button>
                 </div>
             </div>
