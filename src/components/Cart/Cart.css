@@ -88,6 +88,7 @@ margin: 1rem 2rem 1rem 2rem;
 
 .carrito-Cantidad{
 color: white;
+margin-top: 12px;
 }
 .carrito-Precio {
     color: white;
@@ -153,3 +154,15 @@ color: white;
     border-radius: 23rem;
 }
 
+.form{
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.form label{
+    color: goldenrod;;
+}

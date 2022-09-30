@@ -2,13 +2,47 @@ import "./Cart.css"
 import {useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
+import moment from 'moment';
+import {collection, addDoc, getFirestore } from "firebase/firestore";
 
 const Cart = () => {
 
 const {cart, clearCarrito, deleteCarrito} = useContext(CartContext)
-
 const [total, setTotal] = useState("0")
 const [actualizar, setActualizar] = useState(false)
+const [values, setValues] = useState({
+  name: "",
+  email: "",
+});
+
+const createOrder = () =>{
+  const db = getFirestore();
+  const order = {
+    buyer: {
+      name: `${values.name}`,
+      phone: `0303456`,
+      email: `${values.email}`
+    },
+    items: cart, 
+    total: total,
+    date: moment().format(),
+  }
+  const query = collection(db, `orders`);
+  addDoc(query, order)
+  .then(({id}) => {
+    toast (`Felicidades ${values.name}!
+    El ID de tu compra es ${id}`, {
+      icon: "🍷",
+      style: {
+      borderRadius: '10px',
+      background: '#333',
+      color: '#fff',
+      },
+    })
+  })
+  .catch(()=> toast.error(`Tu compra no pudo ser completada, intentalo más tarde`))
+}
 
 useEffect(()=>{
 setTotal((cart.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)))
@@ -24,11 +58,43 @@ const eliminarTodo = () => {
   !actualizar ? setActualizar(true) : setActualizar(false)
 }
 
+  const buy = (event) => {
+    // Previene el comportamiento default de loformularios el cual recarga el sitio
+    event.preventDefault();
+    if (!values.name || !values.email) {
+      toast.error("complete los campos");
+    }else {
+      createOrder();
+      eliminarTodo();
+    }    
+  }
+
+  const handleChange = (event) =>{
+    /*
+      event.target es el elemento que ejecuto el evento.
+      name identifica el input y value describe el valor actual
+    */
+    const { target } = event;
+    const { name, value } = target;
+    /*
+      Este snippet:
+      1. Clona el estado actual
+      2. Reemplaza solo el valor del input que ejecutó el evento
+    */
+    const newValues = {
+      ...values,
+      [name]: value,
+    };
+    // Sincroniza el estado de nuevo
+    setValues(newValues);
+  }
+
+
   return (
     <div className="carrito-Tarjeta">
+      <Toaster position="top-right" reverseOrder={false} />
         <div className="carrito-Body">
         <h1>Carrito de compras</h1>
-        
         {cart.map((item)=> (
             <div className="carrito-Producto" key={item.id}>
                 <img className="carrito-Imagen" width={`70px`} height={`265px`} src={item.img} alt={item.title}/>
@@ -48,12 +114,11 @@ const eliminarTodo = () => {
             </div>
                 <div className="carrito-Footer">
                     <div className="carrito-Cantidad">{item.cantidad}</div>
-                    <h3 className="carrito-Precio">${item.precio}<span className="badge-2">/ unidad</span></h3>
+                    <h3 className="carrito-Precio">${item.precio}<span className="badge-2"> <br/>/ unidad</span></h3>
                     <button className="carrito-Boton" onClick={() => (eliminarUno(item.id))}>quitar</button>
                 </div>
             </div>
         ))} 
-        {/* <div className="carrito-Total">TOTAL</div> */}
         {cart.length === 0 ? (
         <>
           <h2 className="carrito-Mensaje">No hay productos en tu carrito</h2>
@@ -62,9 +127,29 @@ const eliminarTodo = () => {
         <>
           <div className="carrito-Total">TOTAL : ${total}.-</div>
           <button className="carrito-Boton" onClick={eliminarTodo} >Vaciar Carrito</button>
-        </>
-        }
-        
+          
+            <form className="form" onSubmit={buy}>
+            <label htmlFor="password">Nombre</label>
+              <input
+                id="name"
+                name="name"
+                type="name"
+                value={values.name}
+                onChange={handleChange}
+              />
+              <br/>
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={values.email}
+                onChange={handleChange}
+            />
+            <br/>
+              <button className="carrito-Boton" type="submit">Crear orden</button>
+            </form>
+          </>}
         
         </div>
     </div>

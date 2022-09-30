@@ -27,7 +27,6 @@ const agregar = (cantidad) => {
   setCount(cantidad); //Almaceno la cantidad seleccionada por el usuario
   setMostrar(true); //Renderizo condicionalmente los botones para seguir comprando, más o terminar
   cargar ? setCargar(false) : setCargar(true) //Cambio el estado, para ejecutar el useEffect
-
 }
 
   return(
@@ -59,17 +58,20 @@ const agregar = (cantidad) => {
           rewind: false,
           type: `loop`,
           width : 250,
-          gap   : '1rem',
+          gap   : '2px',
           autoplay: true,
           perPage: 1,
           arrows: false,
-          interval: 2000,
+          interval: 1500,
         } }>
             <SplideSlide>
-              <img src={producto.maridaje1} alt="Ternera"/>
+              <img src={producto.maridaje1} alt="maridaje"/>
             </SplideSlide>
             <SplideSlide>
-              <img src={producto.maridaje2} alt="Aves"/>
+              <img src={producto.maridaje2} alt="maridaje"/>
+            </SplideSlide>
+            <SplideSlide>
+              <img src={producto.maridaje3} alt="maridaje"/>
             </SplideSlide>
           </Splide>
               </span>
