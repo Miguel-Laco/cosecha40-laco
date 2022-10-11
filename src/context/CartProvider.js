@@ -29,7 +29,6 @@ const addCarrito = (item, cantidad, stock) => {
                 color: '#fff',
                 },
             })
-
         }else {
             existe.cantidad = existe.cantidad + cantidad;
             existe.stock = existe.stock - cantidad;
@@ -46,17 +45,6 @@ const addCarrito = (item, cantidad, stock) => {
         })
     }
 }
-
-/* const deleteCarrito = (prodId) =>{
-    const item = cart.findIndex((prod) => prod.id === prodId) 
-    let nuevoArreglo = [];
-    cart.forEach(prod=> {
-        if (prod.id !== prodId){
-            nuevoArreglo.push(prod)
-        }
-    })
-    setCart(nuevoArreglo);
-} */
 
 const deleteCarrito = (prodId) => {
     setCart(cart.filter((prod)=> prod.id !== prodId))

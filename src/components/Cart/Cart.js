@@ -13,6 +13,7 @@ const [total, setTotal] = useState("0")
 const [actualizar, setActualizar] = useState(false)
 const [values, setValues] = useState({
   name: "",
+  phone: "",
   email: "",
 });
 
@@ -21,7 +22,7 @@ const createOrder = () =>{
   const order = {
     buyer: {
       name: `${values.name}`,
-      phone: `0303456`,
+      phone: `${values.phone}`,
       email: `${values.email}`
     },
     items: cart, 
@@ -61,19 +62,15 @@ const eliminarTodo = () => {
   const buy = (event) => {
     // Previene el comportamiento default de loformularios el cual recarga el sitio
     event.preventDefault();
-    if (!values.name || !values.email) {
+    if (!values.name || !values.email || !values.phone) {
       toast.error("complete los campos");
     }else {
       createOrder();
-      eliminarTodo();
+      eliminarTodo(); 
     }    
   }
 
   const handleChange = (event) =>{
-    /*
-      event.target es el elemento que ejecuto el evento.
-      name identifica el input y value describe el valor actual
-    */
     const { target } = event;
     const { name, value } = target;
     /*
@@ -129,7 +126,7 @@ const eliminarTodo = () => {
           <button className="carrito-Boton" onClick={eliminarTodo} >Vaciar Carrito</button>
           
             <form className="form" onSubmit={buy}>
-            <label htmlFor="password">Nombre</label>
+            <label htmlFor="name">Nombre</label>
               <input
                 id="name"
                 name="name"
@@ -137,13 +134,20 @@ const eliminarTodo = () => {
                 value={values.name}
                 onChange={handleChange}
               />
-              <br/>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Correo</label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 value={values.email}
+                onChange={handleChange}
+            />
+              <label htmlFor="phone">Teléfono</label>
+              <input
+                id="phone"
+                name="phone"
+                type="number"
+                value={values.phone}
                 onChange={handleChange}
             />
             <br/>

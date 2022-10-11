@@ -8,7 +8,6 @@ import {useContext } from "react";
 const NavBar = (props) => {
     //traigo el cart, para mostrar condicionalmente el CartWidget
     const {cart} = useContext(CartContext) 
-
     return (
         <div className="header-nav">
                     <div>

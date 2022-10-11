@@ -1,8 +1,8 @@
-import "./ItemListContainer.css"
-import { useEffect, useState } from "react"
-import ItemList from "../ItemList/ItemList"
-import { useParams } from "react-router-dom"
-import { getFirestore, getDocs, collection, query, where } from "firebase/firestore"
+import "./ItemListContainer.css";
+import { useEffect, useState } from "react";
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+import { getFirestore, getDocs, collection, query, where } from "firebase/firestore";
 
 
 const ItemListContainer = ({greeting}) => {
@@ -13,7 +13,6 @@ const ItemListContainer = ({greeting}) => {
     useEffect(() => {
     getProducts()
   }, [categoryName])
-
 
     //Traigo la info de Firestore
     const getProducts = () =>{
