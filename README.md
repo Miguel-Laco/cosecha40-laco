@@ -43,8 +43,7 @@ E-commerce app, developed by me, for the final project of React js course.
 
 ### Demo
 
-![Demo de una compra](https://github.com/Miguel-Laco/cosecha40-laco/blob/master/public/img/Demo.PNG)
-<!-- ![Demo de una compra](https://github.com/nicoaherrera/clase2react/blob/main/public/img/gifcursoreact.gif?raw=true) -->
+![Demo de una compra](https://github.com/Miguel-Laco/cosecha40-laco/blob/master/public/img/demo-Cosecha40.gif?raw=true)
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -125,8 +124,8 @@ Miguel Horacio Laco Salaverría -
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Professor: Juan Magos ](https://github.com/JuanMagos)
-* [Tutor: Danae Meneses ](https://github.com/danaemeneses)
+* ### Professor [ Juan Magos ](https://github.com/JuanMagos)
+* ### Tutor [ Danae Meneses ](https://github.com/danaemeneses)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
