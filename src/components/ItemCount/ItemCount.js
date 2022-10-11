@@ -12,7 +12,17 @@ function ItemCount( {stock, agregar} ) {
       if ((stock - cantidad) != 0){
         setCantidad(cantidad + 1)
       }else {
-        return
+        toast.success('Se alcanzó el máximo.', {
+          style: {
+            border: '1px solid #713200',
+            padding: '16px',
+            color: '#713200',
+          },
+          iconTheme: {
+            primary: '#713200',
+            secondary: '#FFFAEE',
+          },
+        });
       }
     }else {
       toast.success('Se alcanzó el máximo.', {
