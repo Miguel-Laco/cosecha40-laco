@@ -1,4 +1,25 @@
 <a name="readme-top"></a>
+<!-- PROJECT LOGO -->
+<div align="center">
+  <a href="https://github.com/Miguel-Laco/cosecha40-laco">
+    <img src="public/img/Cosecha401.png" alt="Logo" width="380" height="180">
+  </a>
+
+  <p align="center">
+    It simulates an e-commerce of wines, which concentrates the wineries of the route 40 of Argentina. Describing each winery, the stars of each wine and the indicated pairing.
+    <br />
+    <a href="https://github.com/Miguel-Laco/cosecha40-laco"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Miguel-Laco/cosecha40-laco">View Demo</a>
+    ·
+    <a href="https://github.com/Miguel-Laco/cosecha40-laco/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Miguel-Laco/cosecha40-laco/issues">Request Feature</a>
+  </p>
+</div>
+
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -22,32 +43,8 @@ E-commerce app, developed by me, for the final project of React js course.
 
 ### Demo
 
-![Demo de una compra](https://github.com/nicoaherrera/clase2react/blob/main/public/img/Demo.png)
+![Demo de una compra](https://github.com/Miguel-Laco/cosecha40-laco/blob/master/public/img/Demo.PNG)
 <!-- ![Demo de una compra](https://github.com/nicoaherrera/clase2react/blob/main/public/img/gifcursoreact.gif?raw=true) -->
-
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/Miguel-Laco/cosecha40-laco">
-    <img src="public/img/Cosecha401.png" alt="Logo" width="380" height="180">
-  </a>
-
-  <p align="center">
-    It simulates an e-commerce of wines, which concentrates the wineries of the route 40 of Argentina. Describing each winery, the stars of each wine and the indicated pairing.
-    <br />
-    <a href="https://github.com/Miguel-Laco/cosecha40-laco"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/Miguel-Laco/cosecha40-laco">View Demo</a>
-    ·
-    <a href="https://github.com/Miguel-Laco/cosecha40-laco/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Miguel-Laco/cosecha40-laco/issues">Request Feature</a>
-  </p>
-</div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -66,10 +63,6 @@ E-commerce app, developed by me, for the final project of React js course.
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
