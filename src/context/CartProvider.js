@@ -6,16 +6,6 @@ import toast, { Toaster } from 'react-hot-toast';
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
 
-const notify = () => toast('Hello Darkness!',
-{
-style: {
-    borderRadius: '10px',
-    background: '#333',
-    color: '#fff',
-},
-}
-);
-
 //Creo una función que agrega al carrito el producto, actualizando el stock y agregando cantidad
 const addCarrito = (item, cantidad, stock) => {
     const existe = cart.find ((elemento) => elemento.id === item.id);
